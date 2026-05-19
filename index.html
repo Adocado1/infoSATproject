@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ado Concert Tickets</title>
+    <style>
+        body { 
+            font-family: sans-serif; 
+            font-size: 16px; 
+            margin: 20px; 
+            transition: background 0.3s, color 0.3s;
+        }
+        h1 { 
+            font-family: serif; 
+            font-size: 32px; 
+            font-style: italic; 
+        }
+        section { 
+            width: 80%; 
+            margin: 20px; 
+            padding: 15px; 
+            background: #f0f0f0; 
+            transition: background 0.3s;
+        }
+        button { 
+            font-family: monospace; 
+            border-radius: 8px; 
+            padding: 5px; 
+            cursor: pointer;
+        }
+        img { 
+            float: left; 
+            margin: 10px; 
+            border-radius: 5px; 
+        }
+        .clear { 
+            clear: both; 
+        }
+        table, th, td { 
+            border: 1px solid black; 
+            border-collapse: collapse; 
+            padding: 5px; 
+        }
+        #secret-text { 
+            display: none; 
+            background: yellow; 
+            color: black;
+            padding: 5px;
+        }
+        body.dark-theme {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        body.dark-theme section {
+            background-color: #222222;
+            color: #ffffff;
+        }
+        body.dark-theme table, body.dark-theme th, body.dark-theme td {
+            border: 1px solid #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Ado Live 2026</h1>
+        <nav>
+            <a href="#about">About</a> | 
+            <a href="#dates">Dates</a> | 
+            <a href="#buy">Tickets</a>
+        </nav>
+    </header>
+
+    <section id="about">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA7L4mU-Q8ZEFJhaneXrmh1IjAc63LwiNfGQ&s" alt="Ado Concert" width="300">
+        <p>Buy tickets to see Ado live in concert. Experience the best J-Pop music live on stage!</p>
+        <div class="clear"></div>
+    </section>
+
+    <section id="dates">
+        <table>
+            <tr><th>City</th><th>Venue</th><th>Date</th><th>Price</th><th>Status</th></tr>
+            <tr><td>Tokyo</td><td>Dome</td><td>Oct 1</td><td>$100</td><td>Live</td></tr>
+            <tr><td>Osaka</td><td>Dome</td><td>Oct 3</td><td>$100</td><td>Live</td></tr>
+            <tr><td>Seoul</td><td>Arena</td><td>Oct 5</td><td>$90</td><td>Live</td></tr>
+            <tr><td>Taipei</td><td>Hall</td><td>Oct 7</td><td>$90</td><td>Live</td></tr>
+            <tr><td>London</td><td>Arena</td><td>Oct 10</td><td>$120</td><td>Live</td></tr>
+            <tr><td>Paris</td><td>Hall</td><td>Oct 12</td><td>$120</td><td>Live</td></tr>
+            <tr><td>Berlin</td><td>Stage</td><td>Oct 14</td><td>$110</td><td>Live</td></tr>
+            <tr><td>New York</td><td>Garden</td><td>Oct 18</td><td>$130</td><td>Live</td></tr>
+            <tr><td>LA</td><td>Forum</td><td>Oct 20</td><td>$130</td><td>Live</td></tr>
+            <tr><td>Local</td><td>Theater</td><td>Oct 25</td><td>$80</td><td>Live</td></tr>
+        </table>
+    </section>
+
+    <section id="buy">
+        <h2 id="greeting-display">Book Tickets</h2>
+        
+        <input type="text" id="userName" placeholder="Your Name">
+        <button onclick="sayHello()">Submit Name</button>
+
+        <p>Click below to toggle Dark Mode for the entire page.</p>
+        <button onclick="toggleMode()">Toggle Dark Mode</button>
+
+        <p id="secret-text">🎉 Bonus: Front row access granted!</p>
+        <button onclick="showText()">Reveal Bonus</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Ado Tickets</p>
+    </footer>
+
+    <script>
+        function sayHello() {
+            const name = document.getElementById("userName").value;
+            const display = document.getElementById("greeting-display");
+
+            if (name === "") {
+                display.innerText = "Please enter a name!";
+                display.style.color = "red";
+            } else {
+                display.innerText = "Hello, " + name + "! Welcome to my site.";
+                display.style.color = "green";
+            }
+        }
+
+        function toggleMode() {
+            document.body.classList.toggle("dark-theme");
+        }
+
+        function showText() {
+            const hiddenText = document.getElementById("secret-text");
+            hiddenText.style.display = "block";
+        }
+    </script>
+</body>
+</html>
